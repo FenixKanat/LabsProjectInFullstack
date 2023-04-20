@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Album = require('./albumModel.js');
-
+const path = require('path');
+const port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -20,11 +21,12 @@ mongoose.connect(process.env.MongoDB, {
   console.log('Error connecting to MongoDB', error);
 });
 
-app.use(express.json()); // add this middleware to parse incoming JSON payloads
+app.use(express.json());
 
-//app.get('/', (req, res) => {
-  //res.sendFile(__dirname + '/index.html');
-//});
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '/index.html'));
+});
 
 //Get all the albums in the database
 app.get('/api/albums', (req, res) => {
@@ -93,6 +95,6 @@ app.delete('/api/albums/:id', (req, res) => {
 
 
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
