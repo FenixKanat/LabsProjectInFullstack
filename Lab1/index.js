@@ -22,9 +22,9 @@ mongoose.connect(process.env.MongoDB, {
 
 app.use(express.json()); // add this middleware to parse incoming JSON payloads
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
+//app.get('/', (req, res) => {
+  //res.sendFile(__dirname + '/index.html');
+//});
 
 //Get all the albums in the database
 app.get('/api/albums', (req, res) => {
