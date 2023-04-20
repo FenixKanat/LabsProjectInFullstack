@@ -9,6 +9,7 @@ let albumTitle = document.getElementById("album-title");
 let albumArtist = document.getElementById("artist");
 let albumYear = document.getElementById("year");
 
+//event listener for button get album, fetching and showing data.
 getAlbum.addEventListener('click', async event => {
 
     const response = await fetch('http://127.0.0.1:3000/api/albums',{
@@ -21,6 +22,7 @@ getAlbum.addEventListener('click', async event => {
     console.log(responseData);
 });
 
+//event listener for button get one album by id, fetching and showing data.
 getOneAlbum.addEventListener('click', async event => {
 
     const albumid = albumID.value;
@@ -35,6 +37,7 @@ getOneAlbum.addEventListener('click', async event => {
     console.log(responseData);
 });
 
+//event listener for button create album, fetching and rearranging inputdata and storing it
 
 createAlbum.addEventListener('click', async event => {
 
@@ -68,6 +71,7 @@ createAlbum.addEventListener('click', async event => {
 
 });
 
+//event listener for button updateAlbum, taking input value and storing it. 
 updateAlbum.addEventListener('click', async event => {
 
     const albumid = albumID.value
@@ -101,6 +105,7 @@ updateAlbum.addEventListener('click', async event => {
 
 });
 
+//event listener for delete album button, deleting album by given id. 
 deleteAlbum.addEventListener('click', async event => {
    
     const albumid = albumID.value
